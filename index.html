@@ -3,59 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Professional Portfolio</title>
+
+    <!-- Link to Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f0f0;
+            background: linear-gradient(120deg, #84fab0, #8fd3f4); /* Gradient background */
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden; /* Prevent vertical scroll */
+            position: relative;
         }
 
-        .container {
+        /* Decorative Circle */
+        .decorative-circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            top: 10%;
+            right: -50px;
+            z-index: -1; /* Behind everything */
+        }
+
+        /* Another Decorative Element */
+        .decorative-triangle {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 150px solid transparent;
+            border-right: 150px solid transparent;
+            border-bottom: 150px solid rgba(255, 255, 255, 0.15);
+            bottom: -50px;
+            left: -50px;
+            z-index: -1;
+        }
+
+        /* Container for content */
+        .main-container {
             background-color: #ffffff;
             border-radius: 12px;
-            padding: 40px;
-            width: 350px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            width: 60%;
+            max-width: 900px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
         }
 
-        .container h1 {
-            font-size: 28px;
+        .profile-section {
+            background-color: #f0f4f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Rounded square shape for the profile photo */
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 15%; /* This makes the square edges slightly rounded */
+            margin-bottom: 20px;
+        }
+
+        .content-section {
+            padding: 40px;
+            text-align: left;
+        }
+
+        .content-section h1 {
+            font-size: 30px;
             color: #333333;
             margin-bottom: 10px;
         }
 
-        .container p {
+        .content-section p {
             color: #666666;
             font-size: 16px;
-            line-height: 1.5;
+            line-height: 1.7;
             margin-bottom: 20px;
-        }
-
-        .profile-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #00aaff;
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-photo:hover {
-            transform: scale(1.05); /* Subtle zoom effect on hover */
         }
 
         .resume-btn {
-            background-color: #00aaff;
+            background-color: #28a745; /* Green for growth and reliability */
             color: #ffffff;
-            padding: 12px 25px;
+            padding: 12px 30px;
             border: none;
             border-radius: 30px;
             font-size: 16px;
@@ -65,40 +109,91 @@
             transition: background-color 0.3s ease, transform 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            margin-top: 20px;
         }
 
         .resume-btn:hover {
-            background-color: #0088cc;
+            background-color: #218838;
             transform: scale(1.05);
         }
 
         .social-links {
-            margin-top: 20px;
+            margin-top: 30px;
         }
 
         .social-links a {
-            margin: 0 10px;
-            color: #00aaff;
-            font-size: 20px;
+            margin-right: 15px;
+            font-size: 18px;
             text-decoration: none;
             transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
         }
 
-        .social-links a:hover {
-            color: #0088cc;
+        /* GitHub link using official brand color */
+        .social-links a.github {
+            color: #181717;
+        }
+
+        .social-links a.github:hover {
+            color: #333333;
+        }
+
+        .social-links a.linkedin {
+            color: #0077b5;
+        }
+
+        .social-links a.linkedin:hover {
+            color: #005983;
+        }
+
+        .social-links a i {
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-section, .content-section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <img src="/static/images/moin.jpg" alt="My Photo" class="profile-photo">
-        <h1>Jonnalagadda Krishna Sai Roshith</h1>
-        <p>Hello, I'm Jonnalagadda Krishna Sai Roshith. I am a programming enthusiast. I generally prefer Java and Python but am free to choose any language. I am a very friendly and helpful person. I am also a Tech enthusiast. I like reseacrching about new inventions and growth of technology.</p>
-        <a href="resume.html" class="resume-btn">View My Resume</a>
-        <div class="social-links">
-            <a href="https://github.com/JKrishnasairoshith" target="_blank">GitHub</a>
-            <a href="www.linkedin.com/in/krishna-sai-roshith-jonnalagadda-aa01a1211" target="_blank">LinkedIn</a>
+    <!-- Decorative Elements -->
+    <div class="decorative-circle"></div>
+    <div class="decorative-triangle"></div>
+
+    <div class="main-container">
+        <!-- Profile Section with Rounded Square Photo -->
+        <div class="profile-section">
+            <img src="/static/images/Roshith.jpg" alt="Profile Photo" class="profile-photo">
+        </div>
+
+        <!-- Bio and Resume Section -->
+        <div class="content-section">
+            <h1>Jonnalagadda Krishna Sai Roshith</h1>
+            <p>Hello, I'm Jonnalagadda Krishna Sai Roshith. I am a programming enthusiast who specializes in Java and Python. I am always open to learning new technologies and have a passion for tech innovation. In addition to coding, I enjoy working on projects that promote the growth of technology. Let's connect and create something exciting together!</p>
+            
+            <a href="resume.html" class="resume-btn">View My Resume</a>
+
+            <!-- Social Links with Icons -->
+            <div class="social-links">
+                <a href="https://github.com/JKrishnasairoshith" target="_blank" class="github">
+                    <i class="fab fa-github"></i>GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/krishna-sai-roshith-jonnalagadda-aa01a1211" target="_blank" class="linkedin">
+                    <i class="fab fa-linkedin"></i>LinkedIn
+                </a>
+            </div>
         </div>
     </div>
+
+    <!-- Font Awesome Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>
+
