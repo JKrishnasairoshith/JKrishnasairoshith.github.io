@@ -69,18 +69,22 @@
             position: relative;
         }
 
-        /* Rounded square shape for the profile photo */
+        /* Larger Rounded Square shape for the profile photo */
         .profile-photo {
-            width: 120px;
-            height: 120px;
+            width: 180px; /* Increased size */
+            height: 180px;
             object-fit: cover;
-            border-radius: 15%; /* This makes the square edges slightly rounded */
+            border-radius: 15%; /* Slightly rounded corners */
             margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
         }
 
         .content-section {
             padding: 40px;
             text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .content-section h1 {
@@ -159,6 +163,12 @@
             .profile-section, .content-section {
                 padding: 20px;
             }
+
+            /* Adjust profile image size for smaller screens */
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+            }
         }
     </style>
 </head>
@@ -168,17 +178,16 @@
     <div class="decorative-triangle"></div>
 
     <div class="main-container">
-        <!-- Profile Section with Rounded Square Photo -->
+        <!-- Profile Section with Larger Rounded Square Photo -->
         <div class="profile-section">
             <img src="/static/images/profile.jpg" alt="Profile Photo" class="profile-photo">
         </div>
 
         <!-- Bio and Resume Section -->
         <div class="content-section">
-            <h1>Jonnalagadda Krishna Sai Roshith</h1>
-            <p>Welcome to my space! I'm Krishna Sai Roshith Jonnalagadda, a data science and AI enthusiast passionate about cutting-edge technologies. I love applying machine learning to real-world challenges. When not exploring tech, I enjoy playing sports and traveling.
-
-                Always eager to learn and collaborate, let’s connect and create something innovative together!</p>
+            <h1>Krishna Sai Roshith Jonnalagadda</h1>
+            <p>Welcome to my space! I'm Krishna Sai Roshith Jonnalagadda, a data science and AI enthusiast passionate about cutting-edge technologies. I love applying machine learning to real-world challenges. When not exploring tech, I enjoy playing sports and traveling.</p>
+            <p>Always eager to learn and collaborate, let’s connect and create something innovative together!</p>
             
             <a href="resume.html" class="resume-btn">View My Resume</a>
 
@@ -198,3 +207,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
 </body>
 </html>
+
